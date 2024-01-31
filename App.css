@@ -1,0 +1,117 @@
+/**
+ * App.css
+ * 
+ * This file contains all the styling rules for the EPSI data visualization tool's frontend.
+ * It includes styles for the app layout, slider container, image container, and animations.
+ * 
+ * @version 1.0.0
+ * @author Benjamin Yoon
+ * @date 2024-02-02
+ */
+
+ /* Sets up the main container for the app with side-by-side layout for sliders and image */
+.App {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Styles the container for slider controls with a dark background and white text */
+.slider-container {
+  z-index: 1;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  width: 20%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Styles for headings within the slider container */
+.slider-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Styles for range inputs (sliders) within the slider container */
+.slider-container input[type="range"] {
+  width: 200px;
+  margin-bottom: 8px;
+}
+
+/* Styles the container meant to hold the EPSI plot and the overlaid proton image */
+.image-and-plot-container {
+  position: relative;
+  width: 125vh;
+  height: 93.75vh;
+  margin: auto;
+}
+
+/* Styles the proton image to fit within the plot grid maintaining aspect ratio */
+.proton-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Styling for the EPSI plot */
+.plot-container {
+  position: absolute; /* Positioned within .image-and-plot-container */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  z-index: 2; /* Above the image */
+}
+
+/* Other styles ... */
+
+/* Optional: Additional styles and media queries as needed */
+
+/* Rest of your styles... */
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
