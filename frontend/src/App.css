@@ -1,0 +1,187 @@
+/**
+ * Stylesheet for the EPSI App - Provides styles for layout, controls, and responsive design.
+ * Features from version 1.1.1 include an About page, updated icon and title, README, and AWS hosting.
+ *
+ * @version 1.1.1
+ * @author Benjamin Yoon
+ * @date 2024-03-15
+ */
+
+/* Main Layout */
+.App {
+  display: flex;
+  justify-content: center;
+  /* Horizontally centers content within the app */
+  align-items: center;
+  /* Vertically centers content */
+  height: 100vh;
+  /* Full screen height */
+  overflow: hidden;
+  /* Hides any overflow to prevent scroll bars */
+  background-color: black;
+  /* Sets background color */
+}
+
+/* Slider and Button Control Panel */
+.slider-container {
+  position: fixed;
+  /* Stays in place when scrolling */
+  left: 0;
+  /* Aligns to the left side of the viewport */
+  top: 0;
+  /* Aligns to the top of the viewport */
+  width: 10vw;
+  /* Dynamic width based on viewport width */
+  max-width: 250px;
+  /* Maximum width to maintain usability */
+  height: 100vh;
+  /* Full height of the viewport */
+  padding: 2vw;
+  /* Responsive padding based on viewport width */
+  background-color: #333;
+  /* Dark theme for the control panel */
+  color: white;
+  /* Text color for better readability */
+  z-index: 10;
+  /* Ensures control panel is above other content */
+  overflow-y: auto;
+  /* Allows vertical scrolling for overflow content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centers controls within the panel */
+  min-width: 100px;
+  /* Minimum width to ensure usability */
+}
+
+/* Styling for Headings within Control Panel */
+.slider-container h2 {
+  font-size: 24px;
+  /* Sets font size for headings */
+  margin-bottom: 10px;
+  /* Space between heading and next element */
+  color: white;
+}
+
+/* Slider Styling */
+.slider-container input[type="range"] {
+  width: 100%;
+  /* Slider takes full width of the container */
+}
+
+/* Image and Plot Container */
+.image-and-plot-container {
+  position: relative;
+  /* Establishes positioning context */
+  width: 100vw;
+  /* Full viewport width for responsiveness */
+  height: 100vw;
+  /* Maintains aspect ratio */
+  justify-content: center;
+  /* Centers content horizontally */
+  align-items: center;
+  /* Centers content vertically */
+}
+
+/* Proton Image and Plot Styling */
+.proton-image,
+.plot-container {
+  position: absolute;
+  /* Positions relative to .image-and-plot-container */
+  top: 50%;
+  /* Centers vertically */
+  left: 50%;
+  /* Centers horizontally */
+  transform: translate(-50%, -50%);
+  /* Adjusts positioning for exact centering */
+  z-index: 1;
+  /* Ensures image is under the plot */
+}
+
+/* Proton Image Aspect Ratio */
+.proton-image {
+  width: 50vw;
+  /* Half of viewport width */
+  height: auto;
+  /* Maintains aspect ratio */
+}
+
+/* Custom variables for dynamic offset application */
+:root {
+  --epsi-grid-offset-x: 0px;
+  --epsi-grid-offset-y: 0px;
+}
+
+/* Dynamic Offset for EPSI Plot */
+.plot-container {
+  width: 65vw;
+  /* Width of the plot */
+  height: 48.75vw;
+  /* Height of the plot, maintaining aspect ratio */
+  z-index: 2;
+  /* Ensures plot is above the image */
+  transform: translate(-74.25%, -76%);
+  /* Dynamic offset applied */
+}
+
+/* Button styling for interactive plot control */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 11;
+}
+
+.button {
+  width: 3vw;
+  min-width: 30px;
+}
+
+.top-button-group {
+  margin-bottom: 1px;
+}
+
+.bottom-button-group {
+  display: flex;
+  width: 100%;
+}
+
+.button-reset {
+  margin: 10px 0;
+}
+
+/* Footer Styling */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  color: gray;
+  z-index: 12;
+  font-size: 12px;
+}
+
+footer a {
+  color: #F8F8F8;
+  /* Light color for visibility against the dark background */
+  text-decoration: none;
+  /* Removes underline from links */
+}
+
+footer a:hover {
+  text-decoration: underline;
+  /* Underlines link on hover for visual feedback */
+}
+
+/* Keyframe Animation for App Logo */
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

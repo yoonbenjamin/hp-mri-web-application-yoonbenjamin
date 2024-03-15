@@ -1,0 +1,94 @@
+/* AboutPage.css
+ * 
+ * Defines the styling for the About Page of the EPSI App. This includes typography,
+ * layout adjustments, and interactive link effects. The styling aims to create a
+ * readable, engaging, and consistent visual experience for users seeking information
+ * about the project and its contributors.
+ * 
+ * Version: 1.1.1
+ * Author: Benjamin Yoon
+ * Date: 2024-03-15
+ */
+
+/* Container for the entire About Page content */
+.about-page {
+    max-width: 800px;
+    /* Ensures content is legible on wide screens */
+    margin: auto;
+    /* Centers the content horizontally */
+    padding: 20px;
+    /* Adds padding around the content for spacing */
+    color: #333;
+    /* Dark grey color for text for better readability */
+    font-family: Arial, sans-serif;
+    /* Default font for consistency across devices */
+}
+
+/* Styling for sections detailing PIGI Lab and the author/team */
+.about-section,
+.author-section {
+    margin-bottom: 20px;
+    /* Adds space between sections */
+}
+
+/* Heading 1 style for the page title */
+h1 {
+    text-align: center;
+    /* Centers the title */
+    margin-bottom: 40px;
+    /* Adds space below the title */
+}
+
+/* Heading 2 style for section titles */
+h2 {
+    color: #0056b3;
+    /* Blue color for emphasis and visual hierarchy */
+}
+
+/* Links to PIGI Lab, styled to fit within the text flow */
+.pigilab-link {
+    color: #0056b3;
+    /* Ensures consistency with h2 color */
+    text-decoration: none;
+    /* Removes default underline */
+}
+
+.pigilab-link:hover {
+    text-decoration: underline;
+    /* Adds underline on hover for user interaction */
+}
+
+/* Heading 3 style for subsection titles within the author section */
+h3 {
+    color: #0056b3;
+    /* Same blue color for consistency and emphasis */
+}
+
+/* Paragraph style for improved readability */
+p {
+    text-align: justify;
+    /* Justifies text for a cleaner look */
+    line-height: 1.6;
+    /* Increases line height for better readability */
+}
+
+/* Back to Home link styling */
+.back-to-home {
+    display: block;
+    /* Ensures the link is on its own line */
+    text-align: center;
+    /* Centers the link */
+    margin-top: 40px;
+    /* Adds space above the link */
+    color: #0056b3;
+    /* Consistent blue color for visual consistency */
+    text-decoration: none;
+    /* Removes default underline */
+    font-weight: bold;
+    /* Makes the text bold for emphasis */
+}
+
+.back-to-home:hover {
+    text-decoration: underline;
+    /* Adds underline on hover for clarity */
+}
