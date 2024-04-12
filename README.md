@@ -4,13 +4,27 @@
 EPSI App is a dynamic data visualization tool developed by Benjamin Yoon and Medcap Computing at the PIGI Lab (University of Pennsylvania Perelman School of Medicine), designed to facilitate the analysis and interpretation of EPSI (Echo Planar Spectroscopic Imaging) data. Through an intuitive user interface, users can interactively adjust image slices, contrast levels, and dataset parameters, and visualize EPSI grids overlaid on proton images.
 
 ## Features
-- Interactive sliders for adjusting image slices and contrast.
-- Real-time EPSI grid overlay on proton images.
-- Dynamic grid position adjustment with control buttons.
-- Ability to toggle EPSI data display on/off.
-- Responsive design for various window sizes.
-- Export functionality to save the current view as a PNG image.
-- Access to an About page with additional information about the app and developers.
+**Version 1.0.0** 
+- **Initial Release:** Standard application features.
+- - Interactive sliders for adjusting image slices and contrast.
+- - Real-time EPSI grid overlay on proton images.
+
+**Version 1.0.1**
+- **Responsive Design:** All dimenstions dynamically adjust based on screen resolution.
+- **Enhanced Contrast Control:** Expanded the range of contrast settings for better image visualization.
+
+**Version 1.1.0**
+- **Interactive Plot Shift Controls:** Introduced buttons and directional arrows to shift the overlay plot relative to the proton image, including a button to reset to the default position.
+- **EPSI Axis Management:** Added functionality to clear and recall the EPSI axis with grid retention; grid and image are displayed by default.
+- **Export Functionality:** Implemented a feature to save the current view as a PNG file.  
+
+**Version 1.1.1**
+- **Operational Enhancements:** Improve application functionality.
+- **About Page and Branding Updates:** Created an About page, updated the application's logo and title, and included copyright information for Benjamin Yoon, PIGI Lab/Medcap Computing.
+- **Data Management:** Enhanced capability to upload datasets for processing and visualization.
+
+**Version 1.2.0**
+- **UI Refinement:** Refined the user interface to enhance aesthetics and usability, focusing on intuitive design and enhanced user interation.
 
 ## Installation (Local)
 - Create a new folder with subfolders frontend, backend, and data. Install dependencies for React App in frontend and Flask in backend 
