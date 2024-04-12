@@ -9,10 +9,14 @@ from flask import Flask, jsonify, request, send_file
 from flask_cors import CORS
 from PIL import Image
 from scipy.fft import fftn
+from werkzeug.utils import secure_filename
 
 
 app = Flask(__name__)
 CORS(app)
+UPLOAD_FOLDER = (
+    "/Users/benjaminyoon/Desktop/PIGI folder/Projects/Project4 EPSI App/epsi-app/data"
+)
 
 # Path to the folder containing .dcm files
 folder_path = "/Users/benjaminyoon/Desktop/PIGI folder/Projects/Project4 EPSI App/epsi-app/data_mouse_kidney/s_2023041103/fsems_rat_liver_03.dmc/"
@@ -158,6 +162,20 @@ def get_epsi_data(epsi_value):
     except Exception as e:
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
+
+
+@app.route("/upload", methods=["POST"])
+def file_upload():
+    try:
+        uploaded_files = request.files.getlist("files")
+        for file in uploaded_files:
+            if file:
+                filename = secure_filename(file.filename)
+                save_path = os.path.join(UPLOAD_FOLDER, filename)
+                file.save(save_path)
+        return jsonify({"status": "success"}), 200
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 
 def read_epsi_plot(epsi_value):
