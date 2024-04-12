@@ -1,159 +1,137 @@
 /**
- * Stylesheet for the EPSI App - Provides styles for layout, controls, and responsive design.
- * Features from version 1.1.1 include an About page, updated icon and title, README, and AWS hosting.
+ * App.css
  *
- * @version 1.1.1
+ * Central styling for the EPSI data visualization tool. This file includes styles for layout,
+ * control panels, image and plot alignment, and buttons. It ensures a consistent look and feel
+ * across the application and supports responsive design.
+ *
  * @author Benjamin Yoon
- * @date 2024-03-15
+ * @date 2024-04-12
+ * @version 1.2.0
  */
 
-/* Main Layout */
+/* General layout and container styles */
 .App {
   display: flex;
-  justify-content: center;
-  /* Horizontally centers content within the app */
-  align-items: center;
-  /* Vertically centers content */
+  flex-direction: column;
   height: 100vh;
-  /* Full screen height */
   overflow: hidden;
-  /* Hides any overflow to prevent scroll bars */
   background-color: black;
-  /* Sets background color */
 }
 
-/* Slider and Button Control Panel */
+/* Styling for the slider control panel */
 .slider-container {
   position: fixed;
-  /* Stays in place when scrolling */
   left: 0;
-  /* Aligns to the left side of the viewport */
   top: 0;
-  /* Aligns to the top of the viewport */
-  width: 10vw;
-  /* Dynamic width based on viewport width */
+  width: 100px;
   max-width: 250px;
-  /* Maximum width to maintain usability */
   height: 100vh;
-  /* Full height of the viewport */
-  padding: 2vw;
-  /* Responsive padding based on viewport width */
-  background-color: #333;
-  /* Dark theme for the control panel */
+  padding: 10px;
+  background-color: #aeaeb2;
   color: white;
-  /* Text color for better readability */
-  z-index: 10;
-  /* Ensures control panel is above other content */
+  z-index: 9;
   overflow-y: auto;
-  /* Allows vertical scrolling for overflow content */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Centers controls within the panel */
-  min-width: 100px;
-  /* Minimum width to ensure usability */
+  margin-top: 90px;
 }
 
-/* Styling for Headings within Control Panel */
+/* Styles for headings inside the control panel */
 .slider-container h2 {
-  font-size: 24px;
-  /* Sets font size for headings */
+  font-size: 15px;
   margin-bottom: 10px;
-  /* Space between heading and next element */
-  color: white;
+  color: #6c6c70;
+  align-items: center;
 }
 
-/* Slider Styling */
+/* Input range styles within the slider container */
 .slider-container input[type="range"] {
   width: 100%;
-  /* Slider takes full width of the container */
 }
 
-/* Image and Plot Container */
+/* Container styling for image and plot alignment */
 .image-and-plot-container {
   position: relative;
-  /* Establishes positioning context */
   width: 100vw;
-  /* Full viewport width for responsiveness */
   height: 100vw;
-  /* Maintains aspect ratio */
   justify-content: center;
-  /* Centers content horizontally */
   align-items: center;
-  /* Centers content vertically */
 }
 
-/* Proton Image and Plot Styling */
+/* Styles for image and plot positioning within their container */
 .proton-image,
 .plot-container {
   position: absolute;
-  /* Positions relative to .image-and-plot-container */
   top: 50%;
-  /* Centers vertically */
   left: 50%;
-  /* Centers horizontally */
-  transform: translate(-50%, -50%);
-  /* Adjusts positioning for exact centering */
+  transform: translate(-45%, -40%);
   z-index: 1;
-  /* Ensures image is under the plot */
 }
 
-/* Proton Image Aspect Ratio */
+/* Specific styles for proton images to maintain aspect ratio */
 .proton-image {
-  width: 50vw;
-  /* Half of viewport width */
+  width: 40vw;
   height: auto;
-  /* Maintains aspect ratio */
 }
 
-/* Custom variables for dynamic offset application */
-:root {
-  --epsi-grid-offset-x: 0px;
-  --epsi-grid-offset-y: 0px;
-}
-
-/* Dynamic Offset for EPSI Plot */
+/* Styling for the plot container */
 .plot-container {
-  width: 65vw;
-  /* Width of the plot */
-  height: 48.75vw;
-  /* Height of the plot, maintaining aspect ratio */
+  width: 53.5vw;
+  height: 40.125vw;
   z-index: 2;
-  /* Ensures plot is above the image */
-  transform: translate(-74.25%, -76%);
-  /* Dynamic offset applied */
+  transform: translate(-72.35%, -71%);
 }
 
-/* Button styling for interactive plot control */
+/* Styling for button containers */
 .button-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   z-index: 11;
+  display: inline-block;
+  margin-left: 7.5px;
+  text-align: center;
+  margin-top: 0px;
 }
 
+/* General button styles */
 .button {
-  width: 3vw;
-  min-width: 30px;
+  display: inline-block;
+  border: 2px solid #6c6c70;
+  border-radius: 5px;
+  padding: 0px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: inherit;
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+  width: 22px;
+  margin-top: 0px;
 }
 
+/* Top button */
 .top-button-group {
-  margin-bottom: 1px;
+  margin-bottom: 2.5px;
 }
 
+/* Bottom button */
 .bottom-button-group {
   display: flex;
   width: 100%;
 }
 
+/* Reset button specific styles */
 .button-reset {
-  margin: 10px 0;
+  width: 30px;
+  height: auto;
 }
 
-/* Footer Styling */
+/* Footer styling with fixed positioning */
 footer {
   position: fixed;
-  left: 0;
+  left: 50px;
   bottom: 0;
   width: 100%;
   text-align: center;
@@ -163,19 +141,18 @@ footer {
   font-size: 12px;
 }
 
+/* Link styling within the footer */
 footer a {
   color: #F8F8F8;
-  /* Light color for visibility against the dark background */
   text-decoration: none;
-  /* Removes underline from links */
 }
 
+/* Hover effect for links within the footer */
 footer a:hover {
   text-decoration: underline;
-  /* Underlines link on hover for visual feedback */
 }
 
-/* Keyframe Animation for App Logo */
+/* Keyframe animations for any logos */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -184,4 +161,318 @@ footer a:hover {
   to {
     transform: rotate(360deg);
   }
+}
+
+.top-panel {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-color: #aeaeb2;
+  /* iOS Gray, systemGray */
+  color: white;
+  padding: 10px 0;
+  padding-bottom: 0px;
+  width: 100%;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  /* Shadow to create depth */
+}
+
+.slider-under-top-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #aeaeb2;
+  /* iOS Gray, systemGray */
+  color: white;
+  padding-top: 26px;
+  padding-bottom: 5px;
+  z-index: 9;
+  position: fixed;
+  top: 90px;
+  left: 120px;
+  right: 7px;
+}
+
+/* Custom styles for the image slice slider */
+.image-slice-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #e6e6e6;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* Styles for the slider thumb (the draggable circle) for WebKit browsers */
+.image-slice-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #ccc;
+  border: 1px solid #999;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -6px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for the slider thumb for Mozilla browsers */
+.image-slice-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #ccc;
+  border: 1px solid #999;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for the slider thumb for Microsoft browsers */
+.image-slice-slider::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  background: #ccc;
+  border: 1px solid #999;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for the focus state of the slider thumb */
+.image-slice-slider:focus::-webkit-slider-thumb {
+  background: #00c7be;
+}
+
+.image-slice-slider:focus::-moz-range-thumb {
+  background: #00c7be;
+  /* Slightly darker grey for focused state */
+}
+
+.image-slice-slider:focus::-ms-thumb {
+  background: #00c7be;
+  /* Slightly darker grey for focused state */
+}
+
+.app-content {
+  border: 7.5px solid #aeaeb2;
+  /* Your preferred border color */
+  position: relative;
+  /* or absolute, depending on your layout */
+  top: 0px;
+  /* Height of your top panel */
+  height: calc(100vh - 50px + 50px);
+  /* 100vh is full viewport height, subtract the top panel height and border width */
+  padding-top: 1px;
+  /* Space between top border and content */
+  box-sizing: border-box;
+  /* Includes border in the height calculation */
+  z-index: 8;
+}
+
+.vertical-slider-container {
+  /* This container will help position the vertical sliders */
+  transform-origin: top left;
+  left: 50%;
+  top: 100%;
+}
+
+.vertical-slider {
+  -webkit-appearance: none;
+  width: 8px;
+  /* Desired width of the track */
+  height: 100px;
+  /* Desired height of the slider */
+  background: transparent;
+  /* Slider background to be transparent */
+  outline: none;
+  opacity: 0.7;
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+  -webkit-transition: .2s;
+  transition: background-color .2s ease;
+}
+
+.vertical-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 102%;
+  width: 4px;
+  background: #999;
+  cursor: pointer;
+  /* Position the thumb in the center of the track */
+  margin-top: -2px;
+  /* Half the height to center it */
+}
+
+.vertical-slider::-webkit-slider-runnable-track {
+  background: #ccc;
+  height: 100%;
+  width: 8px;
+  position: relative;
+  /* Allows positioning pseudo-elements */
+}
+
+.vertical-slider:active::-webkit-slider-runnable-track::before {
+  content: "";
+  position: absolute;
+  background: #00c7be;
+  width: 8px;
+  height: 100%;
+  /* Set to the same height as the thumb for full coverage */
+  left: 0;
+  /* Align with the left side of the track */
+  bottom: 0;
+  /* Align with the bottom of the track */
+  z-index: -1;
+  /* Ensure it's under the thumb */
+}
+
+.vertical-slider::-moz-range-track {
+  background: #ccc;
+  height: 100%;
+  width: 8px;
+}
+
+.vertical-slider::-moz-range-progress {
+  background: #999;
+  height: 100%;
+  width: 8px;
+}
+
+.vertical-slider:active::-moz-range-progress {
+  background: #00c7be;
+  /* Change the color below the thumb when active */
+}
+
+/* Additional styles for buttons within the top-panel */
+.top-panel .button {
+  margin: 0 5px;
+}
+
+.icon-button-container {
+  display: inline-block;
+  /* Wrap the button and text */
+  margin: 5px;
+  /* Space around the container */
+  margin-left: 20px;
+  text-align: center;
+  /* Center everything in the container */
+}
+
+.icon-button {
+  display: inline-block;
+  border: 2px solid #6c6c70;
+  border-radius: 10px;
+  padding: 0px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: inherit;
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.icon-button:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.button-icon {
+  width: 40px;
+  height: auto;
+}
+
+.button-text {
+  display: block;
+  /* Display text below the button */
+  margin-top: 7.5px;
+  /* Space between button and text */
+  color: #6c6c70;
+  font-size: 15px;
+}
+
+.epsi-radio-buttons {
+  display: flex;
+  flex-direction: column;
+  /* Stack the buttons vertically */
+  align-items: flex-start;
+  /* Align them to the start of the flex container */
+  margin-left: 7.5px;
+  margin-right: 7.5px;
+}
+
+.radio-button-label {
+  margin-bottom: 5px;
+  /* Spacing between the radio buttons */
+  display: block;
+  /* Block-level to respect margin-bottom */
+}
+
+.epsi-button-text {
+  display: block;
+  /* Display text below the button */
+  margin-top: 7.5px;
+  /* Space between button and text */
+  color: #6c6c70;
+  font-size: 15px;
+  margin-left: 7.5px;
+}
+
+/* Custom variables for dynamic offset application */
+:root {
+  --epsi-grid-offset-x: 0px;
+  --epsi-grid-offset-y: 0px;
+}
+
+.button:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.button img {
+  width: 100%;
+  /* Make the image fill the button */
+  height: auto;
+}
+
+.reset-button-container {
+  display: inline-block;
+  /* Wrap the button and text */
+  margin-left: 10px;
+  text-align: center;
+  /* Center everything in the container */
+}
+
+.reset-button {
+  display: inline-block;
+  border: 2px solid #6c6c70;
+  border-radius: 10px;
+  padding: 0px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: inherit;
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.reset-button:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.button-text-shift {
+  display: block;
+  /* Display text below the button */
+  margin-top: 2px;
+  /* Space between button and text */
+  color: #6c6c70;
+  font-size: 15px;
+}
+
+.button-text-reset {
+  display: block;
+  /* Display text below the button */
+  margin-top: 16px;
+  /* Space between button and text */
+  color: #6c6c70;
+  font-size: 15px;
 }

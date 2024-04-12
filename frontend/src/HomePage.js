@@ -1,36 +1,39 @@
 /**
- * HomePage Component for the EPSI Visualization App.
- * 
- * This component serves as the landing page of the EPSI Visualization Tool, showcasing
- * the main functionalities such as displaying proton images, adjusting EPSI plots, and
- * navigating to the About page. It facilitates user interaction with various controls
- * for data visualization and manipulation.
- * 
- * @version 1.1.1 - Includes navigation to About page and initial data fetching.
- * @author Benjamin Yoon
- * @date 2024-03-15
+ * HomePage.js
+ *
+ * The HomePage component serves as the central interface for the EPSI Visualization App.
+ * It provides functionalities such as displaying proton images, adjusting EPSI plots,
+ * and offering navigation to the About page. This version introduces an updated GUI
+ * with improved controls for enhanced data visualization and user interaction.
+ *
+ * Version 1.2.0: Introduces a refined GUI with new controls and layout adjustments.
+ * Author: Benjamin Yoon
+ * Date: 2024-04-12
  */
 
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import ControlPanel from './components/ControlPanel';
+import ButtonPanel from './components/ButtonPanel';
 import PlotComponent from './components/PlotComponent';
 import { Link } from 'react-router-dom';
 
 function HomePage() {
-  // State management for image display and EPSI data visualization.
+  // State hooks for image URL and EPSI data visualization.
   const [imageURL, setImageURL] = useState('');
   const [epsiData, setEpsiData] = useState({
     xEpsi: [], epsi: [], columns: 0, spectralData: [], rows: 0,
     lroFid: 0, lpeFid: 0, lroEpsi: 0, lpeEpsi: 0, plotShift: [0, 0]
   });
-  const [showEpsi, setShowEpsi] = useState(false); // Toggles the display of EPSI plot.
-  const [offsetX, setOffsetX] = useState(0); // Horizontal offset for plot positioning.
-  const [offsetY, setOffsetY] = useState(0); // Vertical offset for plot positioning.
+  const [showEpsi, setShowEpsi] = useState(false); // Flag for EPSI plot display.
+  // Offsets for EPSI plot positioning.
+  const [offsetX, setOffsetX] = useState(0);
+  const [offsetY, setOffsetY] = useState(0);
+  // Window dimensions for responsive design.
+  const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
+  const [epsiValue, setEpsiValue] = useState(3);
 
-  const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight }); // Tracks window size for responsive design.
-
-  // Fetches initial data on component mount and handles window resizing.
+  // Effect hook for initial data fetch and window resize event listener.
   useEffect(() => {
     fetchInitialData();
     const handleResize = () => setWindowSize({ width: window.innerWidth, height: window.innerHeight });
@@ -38,20 +41,37 @@ function HomePage() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Handlers for user inputs to adjust visualization parameters.
+  // Event handlers for UI control components.
   const handleSliderChange = (newValue, contrastValue) => sendSliderValueToBackend(newValue, contrastValue);
   const handleContrastChange = (sliderValue, newContrastValue) => sendSliderValueToBackend(sliderValue, newContrastValue);
-  const handleEpsiChange = (newEpsiValue) => sendEpsiValueToBackend(newEpsiValue);
-  const toggleEpsi = () => setShowEpsi(!showEpsi);
+  const handleEpsiChange = (newEpsiValue) => { setEpsiValue(newEpsiValue); sendEpsiValueToBackend(epsiValue); }
+  const toggleEpsi = (newStatus) => { setShowEpsi(newStatus); sendEpsiValueToBackend(epsiValue); }
 
-  // Functions to adjust EPSI plot positioning.
+  // Event handlers for plot position adjustment.
   const moveLeft = () => setOffsetX(offsetX - 10);
   const moveRight = () => setOffsetX(offsetX + 10);
   const moveUp = () => setOffsetY(offsetY - 10);
   const moveDown = () => setOffsetY(offsetY + 10);
   const resetPlotShift = () => { setOffsetX(0); setOffsetY(0); };
 
-  // Functions to fetch data from the backend for the proton image and EPSI data.
+  // File upload handler.
+  const handleFileUpload = (files) => {
+    const fileList = Array.from(files); // Convert FileList to array for easier processing.
+
+    fileList.forEach((file) => {
+    });
+
+    const formData = new FormData();
+    fileList.forEach(file => formData.append('files', file));
+
+    const uploadEndpoint = 'http://127.0.0.1:5000/api/upload';
+    fetch(uploadEndpoint, { method: 'POST', body: formData })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error uploading files:', error));
+  };
+
+  // Data fetch functions for proton image and EPSI data.
   const fetchInitialData = () => {
     sendSliderValueToBackend(3, 1);
     sendEpsiValueToBackend(3);
@@ -75,32 +95,40 @@ function HomePage() {
    * @param {number} newEpsiValue - The new value from the epsi plot slider.
    */
   const sendEpsiValueToBackend = (newEpsiValue) => {
-    // Send the EPSI value to the backend
     fetch(`http://127.0.0.1:5000/api/get_epsi_data/${newEpsiValue}`, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
     }).then(response => response.json()).then(data =>
-      // Handle the EPSI-related data
       setEpsiData(data))
       .catch(error => console.error(error));
   };
 
+  // Render the HomePage component.
   return (
     <div className="App">
-      <div className="slider-container">
-        <ControlPanel
-          onSliderChange={handleSliderChange}
-          onContrastChange={handleContrastChange}
+      {/* Top panel with button controls */}
+      <div clssName="top-panel">
+        <ButtonPanel
           onEpsiChange={handleEpsiChange}
-          toggleEpsi={toggleEpsi} // Pass toggle function to SliderComponent
+          toggleEpsi={toggleEpsi}
           onMoveUp={moveUp}
           onMoveLeft={moveLeft}
           onMoveDown={moveDown}
           onMoveRight={moveRight}
           onResetPlotShift={resetPlotShift}
+          onFileUpload={handleFileUpload}
         />
       </div>
+      <ControlPanel
+        onSliderChange={handleSliderChange}
+        onContrastChange={handleContrastChange}
+        onEpsiChange={handleEpsiChange}
+        epsiValue={epsiValue}
+      />
       <div className="image-and-plot-container">
+        <div className="app-content">
+        </div>
         <img src={imageURL} alt="Proton" className="proton-image" />
+        {/* Plot container with dynamic transformation for positioning */}
         <div className='plot-container' style={{ transform: `translate(${offsetX}px, ${offsetY}px)` }}>
           <PlotComponent
             xEpsi={epsiData.xEpsi}
@@ -118,6 +146,7 @@ function HomePage() {
           />
         </div>
       </div>
+      {/* Footer with navigation link to the About page */}
       <footer>
         <Link to="/about">About</Link> • 2024 Universty of Pennsylvania Perelman School of Medicine
       </footer>
