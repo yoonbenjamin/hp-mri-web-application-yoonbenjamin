@@ -1,14 +1,13 @@
 /**
  * AboutPage.js
  * 
- * This component renders the About Page for the EPSI App. It provides insights into
+ * This component renders the About Page for the HP MRI Web App. It provides insights into
  * the Penn Image-Guided Interventions (PIGI) Lab and introduces the development team.
- * Version 1.1.1 introduces an About page accessible from the main application, enhancing
- * user engagement and providing background information on the project and its contributors.
+ * Version 1.2.0 introduces a refined UI and the official title: HP MRI Web Application.
  *
- * @version 1.1.1
+ * @version 1.2.0
  * @author Benjamin Yoon
- * @date 2024-03-15
+ * @date 2024-04-16
  */
 
 import React from 'react';
@@ -50,7 +49,7 @@ function AboutPage() {
         <h3>Zihao Zhou</h3>
       </section>
       {/* Navigation back to the main app page */}
-      <Link to="/" className="back-to-home">Back to EPSI App</Link>
+      <Link to="/" className="back-to-home">Back to HP MRI Web Application</Link>
     </div>
   );
 }

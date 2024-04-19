@@ -5,7 +5,8 @@
  * users to adjust image slice, contrast, and EPSI dataset values. This
  * component manages the application state for these parameters and updates
  * the display based on user input. Version 1.2.0 includes a refined UI with
- * vertical sliders for contrast and EPSI dataset adjustments.
+ * vertical sliders for contrast and EPSI dataset adjustments, and the official
+ * title: HP MRI Web Application.
  *
  * @version 1.2.0
  * @author Benjamin Yoon

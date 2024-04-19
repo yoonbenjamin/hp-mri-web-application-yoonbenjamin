@@ -1,13 +1,13 @@
 /**
  * ButtonPanel.js
  *
- * Renders a panel containing interactive buttons for various functionalities within the EPSI Visualization App.
+ * Renders a panel containing interactive buttons for various functionalities within the HP MRI Web Application.
  * This includes buttons for toggling EPSI plot visibility, adjusting plot position, saving the current state as an image,
  * and uploading a dataset. Icons are used to visually represent the actions, providing a more intuitive user experience.
  * 
- * Version 1.2.0: Introduces a refined GUI with image icons for buttons and a dedicated upload functionality.
+ * Version 1.2.0: Introduces a refined GUI with new controls and layout adjustments and official title: HP MRI Web Application.
  * Author: Benjamin Yoon
- * Date: 2024-04-12
+ * Date: 2024-04-16
  */
 
 import React, { useState, useRef } from 'react';

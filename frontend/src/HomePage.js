@@ -1,14 +1,14 @@
 /**
  * HomePage.js
  *
- * The HomePage component serves as the central interface for the EPSI Visualization App.
+ * The HomePage component serves as the central interface for the HP MRI Web Application.
  * It provides functionalities such as displaying proton images, adjusting EPSI plots,
  * and offering navigation to the About page. This version introduces an updated GUI
  * with improved controls for enhanced data visualization and user interaction.
  *
- * Version 1.2.0: Introduces a refined GUI with new controls and layout adjustments.
+ * Version 1.2.0: Introduces a refined GUI with new controls and layout adjustments and official title: HP MRI Web Application.
  * Author: Benjamin Yoon
- * Date: 2024-04-12
+ * Date: 2024-04-16
  */
 
 import React, { useState, useEffect } from 'react';
