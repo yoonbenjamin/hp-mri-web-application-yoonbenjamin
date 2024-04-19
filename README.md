@@ -1,7 +1,7 @@
-# EPSI App
+# HP MRI Web Application
 
 ## Introduction
-EPSI App is a dynamic data visualization tool developed by Benjamin Yoon and Medcap Computing at the PIGI Lab (University of Pennsylvania Perelman School of Medicine), designed to facilitate the analysis and interpretation of EPSI (Echo Planar Spectroscopic Imaging) data. Through an intuitive user interface, users can interactively adjust image slices, contrast levels, and dataset parameters, and visualize EPSI grids overlaid on proton images.
+The Hyperpolarized (HP) Magnetic Resonance Imaging (MRI) Web Application is a dynamic data visualization tool developed by Benjamin Yoon and Medcap Computing at the PIGI Lab (University of Pennsylvania Perelman School of Medicine), designed to facilitate the analysis and interpretation of EPSI (Echo Planar Spectroscopic Imaging) data. Through an intuitive user interface, users can interactively adjust image slices, contrast levels, and dataset parameters, and visualize EPSI grids overlaid on proton images.
 
 ## Features
 **Version 1.0.0** 
@@ -24,18 +24,19 @@ EPSI App is a dynamic data visualization tool developed by Benjamin Yoon and Med
 - **Data Management:** Enhanced capability to upload datasets for processing and visualization.
 
 **Version 1.2.0**
-- **UI Refinement:** Refined the user interface to enhance aesthetics and usability, focusing on intuitive design and enhanced user interation.
+- **UI Refinement:** Refined the user interface to enhance aesthetics and usability, focusing on intuitive design and enhanced user interation. 
+- **Official Title:** Hyperpolarized (HP) Magnetic Resonance (MRI) Web Application.
 
 ## Installation (Local)
 - Create a new folder with subfolders frontend, backend, and data. Install dependencies for React App in frontend and Flask in backend 
 - Clone the repository to access source code
 
 ```bash
-git clone https://github.com/benjaminyoon/Epsi-App.git epsi-app
+git clone https://github.com/benjaminyoon/hpmri-benjaminyoon.git hpmri-local
 ```
 
 - Replace public and src in your frontend folder with src and public from github
-- Place EpsiGui.py into your backend folder
+- Place HpMri.py into your backend folder
 - Place your data into your data folder
 
 ## Usage
@@ -44,7 +45,7 @@ git clone https://github.com/benjaminyoon/Epsi-App.git epsi-app
 ```bash
 cd <your-folder>/backend
 source .venv/bin/activate
-python EpsiGui.py
+python HpMri.py
 ```
 
 ```bash
@@ -52,7 +53,7 @@ cd <your-folder>/frontend
 npm start
 ```
 
-- Navigate to http://localhost:3000 in your web browser to access the EPSI App.
+- Navigate to http://localhost:3000 in your web browser to access the HP MRI App.
 
 ## License
 This project is licensed under the MIT License - React (software)
@@ -61,7 +62,7 @@ This project is licensed under the MIT License - React (software)
 PIGI Lab is a MRI technology research lab in the University of Pennsylvania Perelman School of Medicine dedicated to creating innovative solutions across various fields. Learn more at www.pigilab.com.
 
 ## Author
-Benjamin Yoon, EPSI App lead developer, is a B.S.E. student at the University of Pennsylvania. For any questions or suggestions regarding the EPSI App, please contact us:
+Benjamin Yoon, HP MRI Web Application lead developer, is a B.S.E. student at the University of Pennsylvania. For any questions or suggestions regarding the HP MRI Web App, please contact us:
 
 - Benjamin Yoon - yoonb2002@gmail.com
 
